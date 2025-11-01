@@ -27,54 +27,56 @@ npm run test
 
 ## Project Structure
 
-└── 📁app
-        └── 📁api
-            └── 📁.wrangler
-                └── 📁state
-                    └── 📁v3
-                        └── 📁cache
-                            └── 📁miniflare-CacheObject
-                        └── 📁workflows
-                └── 📁tmp
-                    └── 📁bundle-03Ywhq
-                        ├── middleware-insertion-facade.js
-                        ├── middleware-loader.entry.ts
-                    └── 📁dev-Vug7Dw
-                        ├── index.js
-                        ├── index.js.map
-            └── 📁src
-                └── 📁__tests__
-                    ├── grading.test.ts
-                └── 📁data
-                    ├── quiz.ts
-                ├── index.ts
-            ├── .gitignore
-            ├── package-lock.json
-            ├── package.json
-            ├── README.md
-            ├── tsconfig.json
-            ├── wrangler.jsonc
-        ├── favicon.ico
-        ├── globals.css
-        ├── layout.tsx
-        ├── page.tsx
-    └── 📁components
-        ├── QuizResult.tsx
-    └── 📁public
-        ├── file.svg
-        ├── globe.svg
-        ├── next.svg
-        ├── vercel.svg
-        ├── window.svg
-    ├── .gitignore
-    ├── eslint.config.mjs
-    ├── next-env.d.ts
-    ├── next.config.ts
-    ├── package-lock.json
-    ├── package.json
-    ├── postcss.config.mjs
-    ├── README.md
-    └── tsconfig.json
+full-stack-quiz-app/
+├─ app/
+│  ├─ api/
+│  │  ├─ .wrangler/
+│  │  │  ├─ state/
+│  │  │  │  ├─ v3/
+│  │  │  │  │  ├─ cache/
+│  │  │  │  │  │  └─ miniflare-CacheObject/
+│  │  │  │  │  └─ workflows/
+│  │  │  └─ tmp/
+│  │  │     ├─ bundle-03Ywhq/
+│  │  │     │  ├─ middleware-insertion-facade.js
+│  │  │     │  └─ middleware-loader.entry.ts
+│  │  │     └─ dev-Vug7Dw/
+│  │  │        ├─ index.js
+│  │  │        └─ index.js.map
+│  │  ├─ src/
+│  │  │  ├─ __tests__/
+│  │  │  │  └─ grading.test.ts
+│  │  │  ├─ data/
+│  │  │  │  └─ quiz.ts
+│  │  │  └─ index.ts
+│  │  ├─ .gitignore
+│  │  ├─ package-lock.json
+│  │  ├─ package.json
+│  │  ├─ README.md
+│  │  ├─ tsconfig.json
+│  │  └─ wrangler.jsonc
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+├─ components/
+│  └─ QuizResult.tsx
+├─ public/
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ next.svg
+│  ├─ vercel.svg
+│  └─ window.svg
+├─ .gitignore
+├─ eslint.config.mjs
+├─ next-env.d.ts
+├─ next.config.ts
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ README.md
+└─ tsconfig.json
+
 
 
 ## Architecture Notes
@@ -140,11 +142,11 @@ npm run test
 
 ## Time Spent
 
-- **Backend:** ~4–5 hours (routes, validation, mock data)  
-- **Frontend:** ~8–10 hours (components, state management, styling, animations)  
-- **Testing & polishing:** ~2–3 hours  
+- **Backend:** ~2 hours (routes, validation, mock data)  
+- **Frontend:** ~2 hours (components, styling, animations)  
+- **Testing & polishing:** ~1 hour 
 
-**Total:** ~14–18 hours  
+**Total:** ~ 5 - 6 hours  
 
 ---
 
