@@ -8,7 +8,7 @@ A small full-stack quiz application demonstrating end-to-end functionality using
 
 ```bash
 # 1. Clone the repo
-git clone <repo-url>
+git clone https://github.com/Chris-26-dev/quiz-app.git
 cd full-stack-quiz-app
 
 # 2. Install dependencies
