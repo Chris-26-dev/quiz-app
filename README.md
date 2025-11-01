@@ -145,9 +145,9 @@ full-stack-quiz-app/
 
 - **Backend:** ~2 hours (routes, validation, mock data)  
 - **Frontend:** ~2 hours (components, styling, animations)  
-- **Testing & polishing:** ~1 hour 
+- **Testing & polishing:** ~2 hours 
 
-**Total:** ~ 5 - 6 hours  
+**Total:** ~ 6 - 7 hours  
 
 ---
 
