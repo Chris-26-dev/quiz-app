@@ -27,6 +27,7 @@ npm run test
 
 ## Project Structure
 
+```
 full-stack-quiz-app/
 ├─ app/
 │  ├─ api/
@@ -76,7 +77,7 @@ full-stack-quiz-app/
 ├─ postcss.config.mjs
 ├─ README.md
 └─ tsconfig.json
-
+```
 
 
 ## Architecture Notes
