@@ -221,7 +221,7 @@ export default function QuizPage() {
               <div className="text-3xl mb-3">📊</div>
               <h3 className="font-semibold text-purple-400 mb-2">Instant Results</h3>
               <p className="text-sm text-gray-400">
-                Get your score immediately with detailed performance insights
+                Get your score immediately
               </p>
             </motion.div>
           </div>
