@@ -61,13 +61,20 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (!started || score !== null || loading) return;
-    if (timeLeft <= 0) {
-      handleNext();
-      return;
-    }
-    const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
-    return () => clearTimeout(timer);
-  }, [timeLeft, score, loading]);
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          handleNext();
+          return 15;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [started, score, loading]);
+
 
   const handleAnswerChange = (id: number, value: AnswerValue): void => {
     setAnswers((prev) => ({ ...prev, [id]: value }));
