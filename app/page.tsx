@@ -29,7 +29,7 @@ export default function QuizPage() {
   const [timeLeft, setTimeLeft] = useState<number>(15);
   const [started, setStarted] = useState<boolean>(false);
 
-  const API_URL = "https://localhost:8787";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
   const fetchQuiz = async (): Promise<void> => {
     setLoading(true);
