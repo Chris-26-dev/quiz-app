@@ -60,7 +60,7 @@ export default function QuizPage() {
   }, []);
 
   useEffect(() => {
-    if (score !== null || loading) return;
+    if (!started || score !== null || loading) return;
     if (timeLeft <= 0) {
       handleNext();
       return;
@@ -166,8 +166,8 @@ export default function QuizPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-[#0f0f23] to-[#1a1a2e] text-gray-200 text-center p-6">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto"
         >
@@ -288,7 +288,10 @@ export default function QuizPage() {
             transition={{ delay: 1 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setStarted(true)}
+            onClick={() => {
+              setTimeLeft(15);
+              setStarted(true);
+            }}
             className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-16 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 shadow-lg shadow-cyan-500/25"
           >
             Start Quiz Now 🚀
