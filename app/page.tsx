@@ -27,6 +27,8 @@ export default function QuizPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<number>(15);
+  const [started, setStarted] = useState<boolean>(false);
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
   const fetchQuiz = async (): Promise<void> => {
@@ -154,6 +156,25 @@ export default function QuizPage() {
             Try Again
           </motion.button>
         </motion.div>
+      </div>
+    );
+
+  // ------------------------------
+  // 🎯 Start Quiz screen
+  // ------------------------------
+  if (!started)
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-[#0f0f23] to-[#1a1a2e] text-gray-200 text-center p-6">
+        <h1 className="text-5xl font-bold mb-6 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          Knowledge Quiz
+        </h1>
+        <p className="mb-8 text-gray-400">Test your technical skills and challenge yourself!</p>
+        <button
+          onClick={() => setStarted(true)}
+          className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-12 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300"
+        >
+          Start Quiz 🚀
+        </button>
       </div>
     );
 
