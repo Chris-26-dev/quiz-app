@@ -29,7 +29,7 @@ export default function QuizPage() {
   const [timeLeft, setTimeLeft] = useState<number>(15);
   const [started, setStarted] = useState<boolean>(false);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+  const API_URL = "https://localhost:8787";
 
   const fetchQuiz = async (): Promise<void> => {
     setLoading(true);
@@ -165,16 +165,145 @@ export default function QuizPage() {
   if (!started)
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-[#0f0f23] to-[#1a1a2e] text-gray-200 text-center p-6">
-        <h1 className="text-5xl font-bold mb-6 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-          Knowledge Quiz
-        </h1>
-        <p className="mb-8 text-gray-400">Test your technical skills and challenge yourself!</p>
-        <button
-          onClick={() => setStarted(true)}
-          className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-12 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300"
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto"
         >
-          Start Quiz 🚀
-        </button>
+          {/* Main Title */}
+          <h1 className="text-6xl font-bold mb-6 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Tech Quiz
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl mb-12 text-gray-300 max-w-md mx-auto">
+            Challenge your technical knowledge and test your skills under pressure!
+          </p>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Timer Feature */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="bg-[#1e1e2e] p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300"
+            >
+              <div className="text-3xl mb-3">⏱️</div>
+              <h3 className="font-semibold text-cyan-400 mb-2">15 Second Timer</h3>
+              <p className="text-sm text-gray-400">
+                Each question has a 15-second time limit. Think fast!
+              </p>
+            </motion.div>
+
+            {/* Question Types */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="bg-[#1e1e2e] p-6 rounded-2xl border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300"
+            >
+              <div className="text-3xl mb-3">📝</div>
+              <h3 className="font-semibold text-blue-400 mb-2">Multiple Formats</h3>
+              <p className="text-sm text-gray-400">
+                Multiple choice, checkboxes, and text questions to test different skills
+              </p>
+            </motion.div>
+
+            {/* Progress Tracking */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              className="bg-[#1e1e2e] p-6 rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+            >
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="font-semibold text-purple-400 mb-2">Instant Results</h3>
+              <p className="text-sm text-gray-400">
+                Get your score immediately with detailed performance insights
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Quick Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="bg-[#1e1e2e] rounded-2xl p-6 mb-8 border border-gray-700/50"
+          >
+            <div className="flex justify-center gap-8 text-center">
+              <div>
+                <div className="text-2xl font-bold text-cyan-400">12</div>
+                <div className="text-sm text-gray-400">Questions</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-blue-400">15s</div>
+                <div className="text-sm text-gray-400">Per Question</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-purple-400">3</div>
+                <div className="text-sm text-gray-400">Question Types</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-green-400">165s</div>
+                <div className="text-sm text-gray-400">Total Time</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Instructions */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="bg-[#1e1e2e] rounded-2xl p-6 mb-8 border border-gray-700/50"
+          >
+            <h3 className="font-semibold text-white mb-4 text-lg">How it works:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left text-sm text-gray-300">
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-xs font-bold mt-0.5">1</div>
+                <p>Answer each question within 15 seconds</p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold mt-0.5">2</div>
+                <p>Multiple choice: Select one correct answer</p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-xs font-bold mt-0.5">3</div>
+                <p>Checkboxes: Select all that apply</p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold mt-0.5">4</div>
+                <p>Text questions: Type your answer</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Start Button */}
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setStarted(true)}
+            className="bg-linear-to-r from-cyan-500 to-blue-600 text-white px-16 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 shadow-lg shadow-cyan-500/25"
+          >
+            Start Quiz Now 🚀
+          </motion.button>
+
+          {/* Quick Tip */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="mt-6 text-sm text-gray-500"
+          >
+            ⚡ Quick tip: The timer turns red when you have less than 5 seconds!
+          </motion.p>
+        </motion.div>
       </div>
     );
 
